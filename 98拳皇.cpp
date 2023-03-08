@@ -20,6 +20,7 @@ void InitImg(){
 	loadimage(&background, "images\\background.jpg", 640, 480);
 
 }
+
 //»­½ÇÉ«
 void drawRole()
 {

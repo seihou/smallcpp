@@ -58,6 +58,7 @@ void ballMove()
 	//用黑色小球擦除坐标改变之前的小球
 	setfillcolor(BLACK);
 	solidcircle(ballx, bally, 10);
+
 	BeginBatchDraw();
 	if (ballx >= 390 || ballx <= 10)
 		addx = -1 * addx;
@@ -104,7 +105,7 @@ void ballMove()
 	//移动到新位置以后重新绘制坐标改变以后的小球
 	setfillcolor(LIGHTRED);
 	solidcircle(ballx, bally, 10);
-	FlushBatchDraw();
+	FlushBatchDraw();//
 	Sleep(5);
 }
 
@@ -112,7 +113,7 @@ void muban()
 {
 	setfillcolor(BLACK);
 	solidrectangle(boardx, boardy, boardx + 60, boardy + 10);
-	switch (getch())
+	switch (_getch())
 	{
 	case 75:
 		boardx -= 15;
@@ -146,7 +147,7 @@ int main()
 
 	while (1)
 	{
-		if (kbhit())
+		if (_kbhit())
 		{
 			muban();
 		}
@@ -158,9 +159,3 @@ int main()
 	MessageBox(NULL, L"游戏结束", L"打砖块", MB_OK);
 	return 0;
 }
-
-/*
-C++发展方向: 服务器开发工程师、人工智能、云计算工程师、信息安全（黑客反黑客）、
-大数据 、数据平台、嵌入式工程师、流媒体服务器、数据控解、图像处理、
-音频视频开发工程师、游戏服务器、分布式系统、游戏辅助等
-*/

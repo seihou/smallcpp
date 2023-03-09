@@ -1,7 +1,6 @@
 ﻿#include<stdio.h>
 #include<easyx.h>
 #include<conio.h>
-
 #include<time.h>
 #define ROW 46
 #define COL 64
@@ -37,7 +36,7 @@ int main()
 	{
 		t2 = GetTickCount();
 		DrawMap();
-		if (kbhit())
+		if (_kbhit())
 		{
 			ChangeDir();
 			move();
@@ -90,7 +89,7 @@ void start()
 	setbkcolor(WHITE);		//设置窗口背景色为白色
 	cleardevice();			//刷新屏幕
 
-	setbkmode(TRANSPARENT);	//设置字体背景色为透明
+	//setbkmode(TRANSPARENT);	//设置字体背景色为透明
 	settextcolor(BLACK);		//设置字体颜色为红色
 	/*****************游戏规则*****************/
 	outtextxy(290, 80, L"功能选择:");
@@ -99,15 +98,12 @@ void start()
 	outtextxy(280, 250, L"3.无敌模式");
 	outtextxy(200, 280, L"数字键 1,2,3 选择模式，Enter键进入游戏");
 	outtextxy(200, 300, L"字母键 W,S,A,D 方向键 上下左右 控制方向");
-	outtextxy(130, 350, L"相关内容：");
-	outtextxy(160, 380, L"关注微信公众号: 编程学习基地 获取源码");
-	outtextxy(160, 410, L"编程学习加群:  879098023");
 }
 void chose()
 {
 	while (1)
 	{
-		switch (getch())
+		switch (_getch())
 		{
 		case '1':
 			start();
@@ -216,7 +212,7 @@ void addfood()
 }
 void ChangeDir()
 {
-	switch (getch())
+	switch (_getch())
 	{
 	case'A':
 	case'a':
@@ -239,7 +235,7 @@ void ChangeDir()
 		if (SnakeDir != 'W') SnakeDir = 'S';
 		break;
 	case 32:
-		getch();
+		_getch();
 		break;
 	default:
 		break;

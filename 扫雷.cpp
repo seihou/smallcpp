@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "easyx.h"
+#include <graphics.h>//图形库
 
 //坐标结构体
 struct Position
@@ -52,7 +53,7 @@ void addNum(int x,int y)
 		{
 			continue;
 		}
-		valueMap[y1][x1]++;
+		valueMap[y1][x1]++;	//
 	}
 }
 
@@ -310,7 +311,7 @@ void start()
 		{
 			//失败了所有雷的显示
 
-			int a = MessageBox(GetForegroundWindow(), "是否继续游戏", "游戏结束", MB_YESNO);
+			int a = MessageBox(GetForegroundWindow(), L"是否继续游戏", L"游戏结束", MB_YESNO);
 			if (6 == a)	//6表示按下了按钮：是
 			{
 				init_map();
@@ -323,7 +324,7 @@ void start()
 		}
 		if (isWin)
 		{
-			int a = MessageBox(GetForegroundWindow(), "是否继续游戏", "游戏胜利", MB_YESNO);
+			int a = MessageBox(GetForegroundWindow(), L"是否继续游戏", L"游戏胜利", MB_YESNO);
 			if (6 == a)	//6表示按下了按钮：是
 			{
 				init_map();
@@ -339,9 +340,7 @@ void start()
 
 int main()
 {
-
 	start();
-
 	//system("pause");
 	return 0;
 }

@@ -52,6 +52,7 @@ int main()
 	}
 	getchar();
 	closegraph();
+	system("pause");
 	return 0;
 }
 void init()

@@ -2,9 +2,11 @@
 #include <time.h>
 #include "mmsystem.h"//多媒体音频接口
 #pragma comment(lib,"winmm.lib")
-#define SCREEN_WIDTH   1345   /*屏幕的宽度*/
-#define SCREEN_HEIGHT   640    /*屏幕的高度*/
-#define RAIN_NUM           200  // /*字符串数量统一时间有多少个字符串落下
+//#define screen_width   1345   /*屏幕的宽度*/
+//#define screen_height   640    /*屏幕的高度*/
+#define SCREEN_WIDTH   3840   /*屏幕的宽度*/
+#define SCREEN_HEIGHT  2160    /*屏幕的高度*/
+#define RAIN_NUM       300  // /*字符串数量同一时间有多少个字符串落下
 
 /*数字雨字符串*///RAIN_NUM同一时间落下多少条数字雨  10每一条10个字母
 char  g_StrRain[RAIN_NUM][15] = { 0 };
@@ -88,7 +90,9 @@ int main()
 	//GetWindowLong（）获得窗口风格
 	//GWL_STYLE窗口风格的一种，设定一个新的窗口风格
 	//WS_CAPTION标题要减掉
-	SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) - WS_CAPTION);
+	//SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) - WS_CAPTION);
+	SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE));
+
 	//设置窗口位置
 	//将窗口置于所有非最顶层窗口之上HWND_TOPMOST一个位置
 	//窗口大小和定位标志SWP_SHOWWINDOW
@@ -101,8 +105,8 @@ int main()
 	//背景修改为黑色
 	SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 0, LWA_COLORKEY);
 	srand((unsigned)time(NULL));
-	mciSendString("open 音乐//xx.mp3", 0, 0, 0);
-	mciSendString("play 音乐//xx.mp3", 0, 0, 0);
+	mciSendString(L"open 音乐//xx.mp3", 0, 0, 0);
+	mciSendString(L"play 音乐//xx.mp3", 0, 0, 0);
 	InitGame();//调用初始化 
 	while (1)//无线落下数字雨用死循环
 	{

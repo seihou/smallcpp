@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\中学生打字练习系统实战项目.cpp" />
     <ClCompile Include="..\黑客帝国数字雨.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

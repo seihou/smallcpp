@@ -86,12 +86,12 @@ int main()
 	//GetSystemMetrics(SM_CXSCREEN)获取屏幕宽
 	//GetSystemMetrics(SM_CYSCREEN)获取屏幕高
 	HWND hwnd = initgraph(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
+
 	//设置窗口风格 
 	//GetWindowLong（）获得窗口风格
 	//GWL_STYLE窗口风格的一种，设定一个新的窗口风格
 	//WS_CAPTION标题要减掉
-	//SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) - WS_CAPTION);
-	SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE));
+	SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) - WS_CAPTION);
 
 	//设置窗口位置
 	//将窗口置于所有非最顶层窗口之上HWND_TOPMOST一个位置
@@ -102,6 +102,7 @@ int main()
 	LONG WindowLong = GetWindowLong(hwnd, GWL_EXSTYLE) | WS_EX_LAYERED;
 	//设置窗口风格
 	SetWindowLong(hwnd, GWL_EXSTYLE, WindowLong);
+
 	//背景修改为黑色
 	SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 0, LWA_COLORKEY);
 	srand((unsigned)time(NULL));
